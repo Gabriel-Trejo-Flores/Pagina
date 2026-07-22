@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // ==========================================
+    // 1. LÓGICA DE TEMA (CLARO / OSCURO)
+    // ==========================================
     const themeToggle = document.getElementById('theme-toggle');
 
-    // 1. EVALUAR HORA DEL DÍA
-    // De 7:00 AM (7) a 6:59 PM (18) = Modo Claro
-    // De 7:00 PM (19) a 6:59 AM (6) = Modo Oscuro
     function aplicarTemaPorHora() {
         const horaActual = new Date().getHours(); 
         
@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Ejecutar al cargar la página
     aplicarTemaPorHora();
 
-    // 2. CAMBIO MANUAL AL HACER CLIC EN EL BOTÓN
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
@@ -32,4 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================
+    // 2. LÓGICA DEL COTIZADOR (WHATSAPP)
+    // ==========================================
+    const whatsappForm = document.getElementById('whatsapp-form');
+
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita que la página se recargue al enviar
+
+            // 1. Capturar los valores que eligió el usuario
+            const tamano = document.getElementById('tamano').value;
+            const acabado = document.getElementById('acabado').value;
+
+            // 2. Número de teléfono de tu cliente (Pon el número real aquí)
+            // IMPORTANTE: Debe llevar el código de país (ej. 52 para México) sin el signo "+"
+            const numeroTelefono = "525584303847"; 
+
+            // 3. Crear el mensaje que le llegará a tu cliente
+            const mensaje = `¡Hola! Vengo de su página web y me gustaría cotizar un cuadro.%0A%0A*Detalles:*%0A🖼️ Tamaño: ${tamano}%0A✨ Acabado: ${acabado}%0A%0A¿Me podrían dar más información?`;
+
+            // 4. Armar el enlace oficial de WhatsApp API
+            const enlaceWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${mensaje}`;
+
+            // 5. Abrir el chat en una pestaña nueva
+            window.open(enlaceWhatsApp, '_blank');
+        });
+    }
+
 });

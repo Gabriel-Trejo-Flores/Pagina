@@ -28,14 +28,44 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header & Botón de Tema */
+/* ==========================================
+   NAVEGACIÓN (HEADER)
+   ========================================== */
+header {
+    background-color: var(--bg-tarjetas);
+    border-bottom: 1px solid var(--borde-suave);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background-color: var(--bg-tarjetas);
-    border-bottom: 1px solid var(--borde-suave);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-cian);
 }
 
 .btn-theme {
@@ -48,7 +78,41 @@ body {
     font-weight: 600;
 }
 
-/* Galería Grid */
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+    text-align: center;
+    padding: 80px 5%;
+    background-color: var(--bg-principal);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background-color: var(--color-cian);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(13, 188, 210, 0.3);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0ba5b8;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   GALERÍA Y NEÓN
+   ========================================== */
 .gallery-section {
     padding: 60px 5%;
     text-align: center;
@@ -68,9 +132,6 @@ body {
     padding: 40px 20px;
 }
 
-/* ==========================================
-   EFECTO RESPLANDOR NEÓN
-   ========================================== */
 .gallery-item.neon-effect {
     border: 2px solid var(--color-cian);
     box-shadow: 0 0 15px rgba(13, 188, 210, 0.4);
@@ -83,16 +144,66 @@ body {
 }
 
 @keyframes neonGlow {
-    0% {
-        box-shadow: 0 0 10px rgba(13, 188, 210, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 22px rgba(13, 188, 210, 0.7), 0 0 10px rgba(233, 30, 99, 0.4);
-    }
+    0% { box-shadow: 0 0 10px rgba(13, 188, 210, 0.3); }
+    100% { box-shadow: 0 0 22px rgba(13, 188, 210, 0.7), 0 0 10px rgba(233, 30, 99, 0.4); }
 }
 
 /* ==========================================
-   SECCIÓN PREGUNTAS FRECUENTES (FAQ)
+   COTIZADOR (FORMULARIO)
+   ========================================== */
+.quote-section {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: var(--bg-tarjetas);
+}
+
+.quote-form {
+    max-width: 500px;
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-size: 1rem;
+}
+
+.btn-whatsapp {
+    width: 100%;
+    padding: 15px;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd58;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   PREGUNTAS FRECUENTES (FAQ)
    ========================================== */
 .faq-section {
     padding: 60px 5%;
@@ -104,7 +215,6 @@ body {
     max-width: 750px;
     margin: 30px auto 0;
     display: flex;
-    flex-direction: flex-direction;
     flex-direction: column;
     gap: 16px;
     text-align: left;
