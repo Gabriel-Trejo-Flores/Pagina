@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoraciones Iyami | Cuadros Personalizados</title>
+    <!-- Aquí vincularemos tu archivo CSS más adelante -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos opcionales (FontAwesome o Boxicons) por si quieres usarlos -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- 1. NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Decoraciones Iyami</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#cotizador">Cotizar Cuadro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Cuadros Personalizados a tu Medida</h1>
+            <p>Transforma tus espacios con acabados premium y los tamaños ideales para tu hogar u oficina.</p>
+            <a href="#cotizador" class="btn-primary">Diseñar mi cuadro</a>
+        </div>
+    </section>
+
+    <!-- 3. GALERÍA / PORTAFOLIO -->
+    <section id="galeria" class="gallery-section">
+        <h2>Nuestro Trabajo</h2>
+        <p>Echa un vistazo a algunos de los proyectos que hemos entregado.</p>
+        <div class="gallery-grid">
+            <!-- Aquí meteremos las tarjetas de fotos más adelante con CSS Grid -->
+            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 1"></div>
+            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 2"></div>
+            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 3"></div>
+            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 4"></div>
+        </div>
+    </section>
+
+    <!-- 4. COTIZADOR INTERACTIVO -->
+    <section id="cotizador" class="quote-section">
+        <h2>Configura tu Cuadro</h2>
+        <p>Selecciona las características que deseas y finaliza tu cotización por WhatsApp.</p>
+        
+        <form id="whatsapp-form" class="quote-form">
+            <!-- Selección de Tamaño -->
+            <div class="form-group">
+                <label for="tamano">1. Elige el tamaño:</label>
+                <select id="tamano" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Chico (30x40 cm)">Chico (30x40 cm)</option>
+                    <option value="Mediano (40x60 cm)">Mediano (40x60 cm)</option>
+                    <option value="Grande (60x90 cm)">Grande (60x90 cm)</option>
+                    <option value="Personalizado">Otro tamaño personalizado</option>
+                </select>
+            </div>
+
+            <!-- Selección de Acabado -->
+            <div class="form-group">
+                <label for="acabado">2. Elige el acabado:</label>
+                <select id="acabado" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Lona Canvas con Bastidor">Lona Canvas con Bastidor</option>
+                    <option value="Acabado Acrílico Premium">Acabado Acrílico Premium</option>
+                    <option value="Marco de Madera Tradicional">Marco de Madera Tradicional</option>
+                </select>
+            </div>
+
+            <!-- Botón de acción -->
+            <button type="submit" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Enviar pedido a WhatsApp
+            </button>
+        </form>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer>
+        <p>&copy; 2026 Decoraciones Iyami. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="AQUÍ_VA_EL_LINK_DE_SU_FACEBOOK" target="_blank">Facebook</a>
+        </div>
+    </footer>
+
+    <!-- Aquí vincularemos el JavaScript para la lógica de WhatsApp -->
+    <script src="script.js"></script>
+</body>
+</html>
