@@ -3,93 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decoraciones Iyami | Cuadros Personalizados</title>
-    <!-- Aquí vincularemos tu archivo CSS más adelante -->
+    <title>Decoraciones Iyami - Cuadros Personalizados</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Iconos opcionales (FontAwesome o Boxicons) por si quieres usarlos -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <!-- 1. NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Decoraciones Iyami</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#cotizador">Cotizar Cuadro</a></li>
-            </ul>
-        </nav>
+    <!-- NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="logo">Decoraciones Iyami</div>
+        <button id="theme-toggle" class="btn-theme">🌙 Oscuro</button>
     </header>
 
-    <!-- 2. HERO SECTION -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Cuadros Personalizados a tu Medida</h1>
-            <p>Transforma tus espacios con acabados premium y los tamaños ideales para tu hogar u oficina.</p>
-            <a href="#cotizador" class="btn-primary">Diseñar mi cuadro</a>
-        </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Transforma tus Recuerdos en Arte</h1>
+        <p>Cuadros personalizados impresos, en resina, polióleo y con efectos LED neón.</p>
+        <a href="#cotizador" class="btn-primary">Cotizar por WhatsApp</a>
     </section>
 
-    <!-- 3. GALERÍA / PORTAFOLIO -->
+    <!-- GALERÍA DE PRODUCTOS -->
     <section id="galeria" class="gallery-section">
         <h2>Nuestro Trabajo</h2>
-        <p>Echa un vistazo a algunos de los proyectos que hemos entregado.</p>
+        <p>Echa un vistazo a la variedad de estilos que manejamos.</p>
         <div class="gallery-grid">
-            <!-- Aquí meteremos las tarjetas de fotos más adelante con CSS Grid -->
-            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 1"></div>
-            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 2"></div>
-            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 3"></div>
-            <div class="gallery-item"><img src="placeholder.jpg" alt="Cuadro ejemplo 4"></div>
+            <div class="gallery-item"><p>Cuadro Impreso Tradicional</p></div>
+            <div class="gallery-item neon-effect"><p>⚡ Cuadro Neón LED (Destacado)</p></div>
+            <div class="gallery-item"><p>Cuadro Resina Epóxica</p></div>
+            <div class="gallery-item"><p>Cuadro Polióleo</p></div>
         </div>
     </section>
 
-    <!-- 4. COTIZADOR INTERACTIVO -->
-    <section id="cotizador" class="quote-section">
-        <h2>Configura tu Cuadro</h2>
-        <p>Selecciona las características que deseas y finaliza tu cotización por WhatsApp.</p>
+    <!-- SECCIÓN PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Resolvemos tus dudas antes de ordenar tu cuadro.</p>
         
-        <form id="whatsapp-form" class="quote-form">
-            <!-- Selección de Tamaño -->
-            <div class="form-group">
-                <label for="tamano">1. Elige el tamaño:</label>
-                <select id="tamano" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Chico (30x40 cm)">Chico (30x40 cm)</option>
-                    <option value="Mediano (40x60 cm)">Mediano (40x60 cm)</option>
-                    <option value="Grande (60x90 cm)">Grande (60x90 cm)</option>
-                    <option value="Personalizado">Otro tamaño personalizado</option>
-                </select>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>¿Cómo les envío la foto para mi cuadro?</h3>
+                <p>Al hacer tu cotización por WhatsApp, nos adjuntas tu imagen. Te ayudaremos a revisar que tenga buena resolución para la impresión.</p>
             </div>
-
-            <!-- Selección de Acabado -->
-            <div class="form-group">
-                <label for="acabado">2. Elige el acabado:</label>
-                <select id="acabado" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Lona Canvas con Bastidor">Lona Canvas con Bastidor</option>
-                    <option value="Acabado Acrílico Premium">Acabado Acrílico Premium</option>
-                    <option value="Marco de Madera Tradicional">Marco de Madera Tradicional</option>
-                </select>
+            <div class="faq-item">
+                <h3>¿La edición de imagen realmente es gratis?</h3>
+                <p>¡Sí! Si necesitas cambiar el fondo, agregar un texto especial o un retoque básico, va totalmente por nuestra cuenta.</p>
             </div>
-
-            <!-- Botón de acción -->
-            <button type="submit" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Enviar pedido a WhatsApp
-            </button>
-        </form>
+            <div class="faq-item">
+                <h3>¿Cuánto tiempo tarda la fabricación?</h3>
+                <p>El proceso de fabricación y acabado toma de 3 a 5 días hábiles dependiendo del tipo de cuadro y la complejidad del diseño.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Hacen envíos a domicilio?</h3>
+                <p>Sí, realizamos entregas locales y envíos seguros empacados con la máxima protección.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- 5. FOOTER -->
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Decoraciones Iyami. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="AQUÍ_VA_EL_LINK_DE_SU_FACEBOOK" target="_blank">Facebook</a>
-        </div>
     </footer>
 
-    <!-- Aquí vincularemos el JavaScript para la lógica de WhatsApp -->
-    <script src="script.js"></script>
+    <!-- VINCULACIÓN DE SCRIPT -->
+    <script src="script.js" defer></script>
 </body>
 </html>
