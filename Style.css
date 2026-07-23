@@ -27,7 +27,6 @@ body {
     margin: 0;
     transition: background-color 0.3s, color 0.3s;
 }
-
 /* ==========================================
    NAVEGACIÓN (HEADER)
    ========================================== */
@@ -67,17 +66,28 @@ header {
 .nav-links a:hover {
     color: var(--color-cian);
 }
-
+/* BOTÓN DE TEMA CON CONTRASTE INVERTIDO */
 .btn-theme {
-    padding: 8px 16px;
+    padding: 9px 18px;
     border-radius: 20px;
-    border: 1px solid var(--borde-suave);
-    background-color: var(--bg-principal);
-    color: var(--texto-principal);
+    border: none;
+    background-color: #121212; /* Oscuro cuando la web es clara */
+    color: #ffffff;
     cursor: pointer;
     font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.btn-theme:hover {
+    transform: translateY(-2px);
+}
+
+body.dark-theme .btn-theme {
+    background-color: #ffffff; /* Blanco cuando la web es oscura */
+    color: #121212;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
 /* ==========================================
    HERO SECTION
    ========================================== */
@@ -109,7 +119,6 @@ header {
     background-color: #0ba5b8;
     transform: translateY(-2px);
 }
-
 /* ==========================================
    GALERÍA Y NEÓN
    ========================================== */
@@ -147,7 +156,6 @@ header {
     0% { box-shadow: 0 0 10px rgba(13, 188, 210, 0.3); }
     100% { box-shadow: 0 0 22px rgba(13, 188, 210, 0.7), 0 0 10px rgba(233, 30, 99, 0.4); }
 }
-
 /* ==========================================
    COTIZADOR (FORMULARIO)
    ========================================== */
@@ -201,13 +209,12 @@ header {
     background-color: #1ebd58;
     transform: translateY(-2px);
 }
-
 /* ==========================================
    PREGUNTAS FRECUENTES (FAQ)
    ========================================== */
 .faq-section {
     padding: 60px 5%;
-    background-color: var(--bg-principal);
+    background-color: var(--bg-principal); /* Gris suave en modo claro */
     text-align: center;
 }
 
@@ -246,10 +253,80 @@ header {
     margin: 0;
     line-height: 1.5;
 }
-
+/* ==========================================
+   FOOTER MEJORADO (Blanco y Botones Sociales)
+   ========================================== */
 footer {
-    padding: 30px;
+    padding: 40px 5%;
     text-align: center;
+    background-color: var(--bg-tarjetas); /* Blanco en modo claro */
     border-top: 1px solid var(--borde-suave);
     color: var(--texto-secundario);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--borde-suave);
+}
+
+.social-links a:hover {
+    background-color: var(--color-cian);
+    color: #ffffff;
+    border-color: var(--color-cian);
+    transform: translateY(-3px);
+}
+/* ==========================================
+   ADAPTACIÓN PARA CELULARES
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+/* ==========================================
+   ENLACES INTERNOS EN FAQ (Link a Galería/Catálogo)
+   ========================================== */
+.faq-item a.faq-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color-cian);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.faq-item a.faq-link:hover {
+    text-decoration: underline;
+    color: var(--color-magenta);
 }

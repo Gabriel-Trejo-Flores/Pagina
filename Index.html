@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decoraciones Iyami | Cuadros Personalizados</title>
     <link rel="stylesheet" href="Style.css">
-    <!-- Iconos FontAwesome -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <!-- Iconos FontAwesome Oficiales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
                 <li><a href="#cotizador">Cotizar Cuadro</a></li>
                 <li><a href="#faq">Preguntas</a></li>
             </ul>
-            <!-- Botón de Tema Oscuro integrado -->
+            <!-- Botón de Tema (Invertido) -->
             <button id="theme-toggle" class="btn-theme">🌙 Oscuro</button>
         </nav>
     </header>
@@ -40,7 +40,6 @@
         <p>Echa un vistazo a la variedad de estilos que manejamos.</p>
         <div class="gallery-grid">
             <div class="gallery-item"><p>Cuadro Impreso Tradicional</p></div>
-            <!-- Efecto Neón aplicado aquí -->
             <div class="gallery-item neon-effect"><p>⚡ Cuadro Neón LED (Destacado)</p></div>
             <div class="gallery-item"><p>Cuadro Resina Epóxica</p></div>
             <div class="gallery-item"><p>Cuadro Polióleo</p></div>
@@ -53,7 +52,6 @@
         <p>Selecciona las características que deseas y finaliza tu cotización por WhatsApp.</p>
         
         <form id="whatsapp-form" class="quote-form">
-            <!-- Selección de Tamaño -->
             <div class="form-group">
                 <label for="tamano">1. Elige el tamaño:</label>
                 <select id="tamano" required>
@@ -65,7 +63,6 @@
                 </select>
             </div>
 
-            <!-- Selección de Acabado -->
             <div class="form-group">
                 <label for="acabado">2. Elige el acabado:</label>
                 <select id="acabado" required>
@@ -76,7 +73,6 @@
                 </select>
             </div>
 
-            <!-- Botón de acción -->
             <button type="submit" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Enviar pedido a WhatsApp
             </button>
@@ -105,18 +101,25 @@
                 <h3>¿Hacen envíos a domicilio?</h3>
                 <p>Sí, realizamos entregas locales y envíos seguros empacados con la máxima protección.</p>
             </div>
+            <div class="faq-item">
+                <h3>¿Cuál es la diferencia entre cada acabado?</h3>
+                <p>Cada acabado le da un carácter único a tu cuadro: el <strong>Canvas con Bastidor</strong> da una textura textil tipo galería de arte; el <strong>Acrílico Premium</strong> aporta un brillo reflectante y colores supervívidos; y el <strong>Marco Tradicional</strong> ofrece un encuadre elegante y atemporal. 
+                <br><a href="galeria.html" class="faq-link">Ver catálogo completo de ejemplos →</a>
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- 6. FOOTER -->
+    <!-- 6. FOOTER CON ICONOS -->
     <footer>
         <p>&copy; 2026 Decoraciones Iyami. Todos los derechos reservados.</p>
         <div class="social-links">
-            <a href="AQUÍ_VA_EL_LINK_DE_SU_FACEBOOK" target="_blank">Facebook</a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/525500000000" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </footer>
 
-    <!-- VINCULACIÓN DE SCRIPT -->
     <script src="script.js" defer></script>
 </body>
 </html>
