@@ -1,55 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. LÓGICA DE MODO OSCURO
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeToggleBtn.textContent = '☀️ Claro';
+
+    // ==========================================
+    // 1. LÓGICA DE TEMA (CLARO / OSCURO POR HORA Y BOTÓN)
+    // ==========================================
+    const themeToggle = document.getElementById('theme-toggle');
+
+    // 1. EVALUAR HORA DEL DÍA
+    // De 7:00 AM (7) a 6:59 PM (18) = Modo Claro
+    // De 7:00 PM (19) a 6:59 AM (6) = Modo Oscuro
+    function aplicarTemaPorHora() {
+        const horaActual = new Date().getHours(); 
+        if (horaActual >= 19 || horaActual < 7) {
+            document.body.classList.add('dark-theme');
+            if (themeToggle) themeToggle.textContent = '☀️ Claro';
+        } else {
+            document.body.classList.remove('dark-theme');
+            if (themeToggle) themeToggle.textContent = '🌙 Oscuro';
+        }
     }
 
-    themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        
-        let theme = 'light';
-        if (document.body.classList.contains('dark-theme')) {
-            theme = 'dark';
-            themeToggleBtn.textContent = '☀️ Claro';
-        } else {
-            themeToggleBtn.textContent = '🌙 Oscuro';
-        }
-        localStorage.setItem('theme', theme);
-    });
+    // Ejecutar al cargar la página
+    aplicarTemaPorHora();
 
-    // 2. ENVÍO DEL FORMULARIO A WHATSAPP
+    // 2. CAMBIO MANUAL AL HACER CLIC EN EL BOTÓN
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️ Claro';
+            } else {
+                themeToggle.textContent = '🌙 Oscuro';
+            }
+        });
+    }
+
+    // ==========================================
+    // 2. LÓGICA DEL COTIZADOR (WHATSAPP CON DETALLES)
+    // ==========================================
     const whatsappForm = document.getElementById('whatsapp-form');
-    
-    whatsappForm.addEventListener('submit', (e) => {
-        e.preventDefault();
 
-        const tamano = document.getElementById('tamano').value;
-        const acabado = document.getElementById('acabado').value;
-        const detalles = document.getElementById('detalles').value.trim();
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita que la página se recargue al enviar
 
-        // Número de teléfono de la empresa (Ejemplo: 52 + 10 dígitos)
-        const telefono = "525584303847"; 
+            // 1. Capturar los valores elegidos por el usuario
+            const tamano = document.getElementById('tamano').value;
+            const acabado = document.getElementById('acabado').value;
+            const detallesInput = document.getElementById('detalles');
+            const detalles = detallesInput ? detallesInput.value.trim() : '';
 
-        // Construcción del mensaje predeterminado
-        let mensaje = `Hola *Decoraciones Iyami*, me gustaría cotizar un cuadro personalizado:\n\n`;
-        mensaje += `📐 *Tamaño:* ${tamano}\n`;
-        mensaje += `🖼️ *Acabado:* ${acabado}\n`;
-        
-        if (detalles !== "") {
-            mensaje += `📝 *Detalles especiales:* ${detalles}\n`;
-        }
+            // 2. Armar sección de detalles (incluye los detalles opcionales si existen)
+            let textoDetalles = `*Detalles:*\n🖼️ Tamaño: ${tamano}\n✨ Acabado: ${acabado}`;
+            
+            if (detalles) {
+                textoDetalles += `\n🔹 Detalles especiales: ${detalles}`;
+            }
 
-        mensaje += `📷 *Nota:* Adjunto a continuación la foto de mi cuadro para la cotización.\n\n`;
-        mensaje += `¿Me podrían dar informes sobre el costo total y tiempo de entrega?`;
+            // 3. Crear el mensaje dinámico
+            const mensaje = `¡Hola! Vengo de su página web y me gustaría cotizar un cuadro.\n\n${textoDetalles}\n📌 Nota: Adjunto a continuación la foto de mi cuadro para la cotización.\n\n¿Me podrían dar más información?`;
 
-        // Codificar el texto para URL y abrir WhatsApp
-        const mensajeURLEncoded = encodeURIComponent(mensaje);
-        const urlWhatsApp = `https://wa.me/${telefono}?text=${mensajeURLEncoded}`;
+            // 4. Número de teléfono con lada de México (52)
+            const numeroTelefono = "525584303847"; 
 
-        window.open(urlWhatsApp, '_blank');
-    });
+            // 5. encodeURIComponent transforma automáticamente los emojis y saltos de línea (\n)
+            const enlaceWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje)}`;
+
+            // 6. Abrir el chat en una pestaña nueva
+            window.open(enlaceWhatsApp, '_blank');
+        });
+    }
+
 });
