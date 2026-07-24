@@ -421,3 +421,85 @@ footer {
     color: var(--texto-secundario);
     line-height: 1.4;
 }
+
+/* ==========================================
+   1. TAMAÑO DEL LOGO
+   ========================================== */
+.logo-img {
+    max-height: 155px; /* Ajusta este valor si lo quieres aún más grande */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* ==========================================
+   2. EFECTO HOVER / VISTA PREVIA EN GALERÍA
+   ========================================== */
+.gallery-item {
+    overflow: hidden; /* Evita que la imagen se salga del marco al agrandarse */
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.gallery-item img {
+    transition: transform 0.3s ease-in-out, filter 0.3s ease;
+    width: 100%;
+    display: block;
+}
+
+/* Expansión al pasar el mouse */
+.gallery-item:hover img {
+    transform: scale(1.08); 
+    filter: brightness(1.05);
+}
+
+/* ==========================================
+   3. VENTANA MODAL (VER IMAGEN COMPLETA)
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(5px); /* Efecto borroso elegante al fondo */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.25s forwards ease-out;
+}
+
+@keyframes zoomIn {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #25d366; /* Verde tipo WhatsApp al pasar el cursor */
+}

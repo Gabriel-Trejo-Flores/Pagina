@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensaje = `¡Hola! Vengo de su página web y me gustaría cotizar un cuadro.\n\n${textoDetalles}\n📌 Nota: Adjunto a continuación la foto de mi cuadro para la cotización.\n\n¿Me podrían dar más información?`;
 
             // 4. Número de teléfono con lada de México (52)
-            const numeroTelefono = "525584303847"; 
+            const numeroTelefono = "525656402991"; 
 
             // 5. encodeURIComponent transforma automáticamente los emojis y saltos de línea (\n)
             const enlaceWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje)}`;
@@ -72,3 +72,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// ==========================================
+    // 3. MODAL / LIGHTBOX PARA AMPLIAR IMÁGENES
+    // ==========================================
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.querySelector('.modal-close');
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+
+    // Al hacer clic en cualquier imagen de la galería, se abre en pantalla completa
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            if (modal && modalImg) {
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+            }
+        });
+    });
+
+    // Cerrar al dar clic en la 'X'
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Cerrar al dar clic en cualquier parte fuera de la imagen
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
