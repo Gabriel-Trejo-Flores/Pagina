@@ -13,7 +13,11 @@
     <!-- 1. NAVBAR -->
     <header>
         <nav class="navbar">
-            <div class="logo">Decoraciones Iyami</div>
+            <a href="#inicio" class="logo-link">
+                <!-- Si aún no tienes el logo en imagen, mostrará el texto alternativo sin romperse -->
+                <img src="img/logo.webp" alt="Decoraciones Iyami" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="logo-text" style="display: none;">Decoraciones Iyami</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#galeria">Galería</a></li>
@@ -38,11 +42,31 @@
     <section id="galeria" class="gallery-section">
         <h2>Nuestro Trabajo</h2>
         <p>Echa un vistazo a la variedad de estilos que manejamos.</p>
+        
         <div class="gallery-grid">
-            <div class="gallery-item"><p>Cuadro Impreso Tradicional</p></div>
-            <div class="gallery-item neon-effect"><p>⚡ Cuadro Neón LED (Destacado)</p></div>
-            <div class="gallery-item"><p>Cuadro Resina Epóxica</p></div>
-            <div class="gallery-item"><p>Cuadro Polióleo</p></div>
+            <!-- 1. Tradicional (Efecto Cálido / Oro) -->
+            <div class="gallery-item card-tradicional">
+                <img src="img/cuadro-tradicional.webp" alt="Cuadro Impreso Tradicional" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23e9ecef%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%236c757d%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%20font-family%3D%22sans-serif%22%3EEspacio%20para%20Foto%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                <p>Cuadro Impreso Tradicional</p>
+            </div>
+            
+            <!-- 2. Neón LED (Efecto Azul / Cian Eléctrico) -->
+            <div class="gallery-item card-neon">
+                <img src="img/cuadro-neon.webp" alt="Cuadro Neón LED" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23e9ecef%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%236c757d%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%20font-family%3D%22sans-serif%22%3EEspacio%20para%20Foto%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                <p>⚡ Cuadro Neón LED (Destacado)</p>
+            </div>
+            
+            <!-- 3. Resina Epóxica (Efecto Violeta / Cristal) -->
+            <div class="gallery-item card-resina">
+                <img src="img/cuadro-acrilico.webp" alt="Cuadro Resina Epóxica" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23e9ecef%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%236c757d%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%20font-family%3D%22sans-serif%22%3EEspacio%20para%20Foto%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                <p>Cuadro Resina Epóxica</p>
+            </div>
+            
+            <!-- 4. Polióleo (Efecto Cobre / Óleo Artístico) -->
+            <div class="gallery-item card-polioleo">
+                <img src="img/cuadro-polioleo.webp" alt="Cuadro Polióleo" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23e9ecef%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%236c757d%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%20font-family%3D%22sans-serif%22%3EEspacio%20para%20Foto%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                <p>Cuadro Polióleo</p>
+            </div>
         </div>
     </section>
 
@@ -67,10 +91,21 @@
                 <label for="acabado">2. Elige el acabado:</label>
                 <select id="acabado" required>
                     <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Lona Canvas con Bastidor">Lona Canvas con Bastidor</option>
-                    <option value="Acabado Acrílico Premium">Acabado Acrílico Premium</option>
-                    <option value="Marco de Madera Tradicional">Marco de Madera Tradicional</option>
+                    <option value="Polioleo">Polioleo</option>
+                    <option value="Resina Epoxica">Resina Epoxica</option>
+                    <option value="Impresion en canva">Impresion en canva</option>
+                    <option value="Luz Neón">Luz Neón</option>
                 </select>
+            </div>
+            <!-- Campo de Texto para Detalles -->
+            <div class="form-group">
+                <label for="detalles">3. Detalles o especificaciones (opcional):</label>
+                <textarea id="detalles" rows="3" placeholder="Ej. Quiero que lleve un texto en la esquina, cambio de fondo, etc."></textarea>
+            </div>
+
+            <!-- Cuadro de aviso amigable -->
+            <div class="form-note">
+                <p>💡 <strong>Nota:</strong> Al presionar el botón se abrirá WhatsApp con los datos seleccionados. Recuerda adjuntar ahí la foto que deseas cotizar.</p>
             </div>
 
             <button type="submit" class="btn-whatsapp">
@@ -103,8 +138,10 @@
             </div>
             <div class="faq-item">
                 <h3>¿Cuál es la diferencia entre cada acabado?</h3>
-                <p>Cada acabado le da un carácter único a tu cuadro: el <strong>Canvas con Bastidor</strong> da una textura textil tipo galería de arte; el <strong>Acrílico Premium</strong> aporta un brillo reflectante y colores supervívidos; y el <strong>Marco Tradicional</strong> ofrece un encuadre elegante y atemporal. 
-                <br><a href="galeria.html" class="faq-link">Ver catálogo completo de ejemplos →</a>
+                <p>
+                    Cada acabado le da un carácter único a tu cuadro: <strong>Resina&nbsp;Epoxica</strong> Un brillo tipo espejo, ultra moderno y duradero que protege tu foto para siempre. <strong>Polioleo</strong> Una textura artística y elegante que simula una pintura al óleo.
+                    <br>
+                    <a href="galeria.html" class="faq-link">Ver catálogo completo de ejemplos →</a>
                 </p>
             </div>
         </div>

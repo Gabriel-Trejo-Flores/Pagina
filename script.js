@@ -1,62 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. LÓGICA DE MODO OSCURO
+    const themeToggleBtn = document.getElementById('theme-toggle');
     
-    // ==========================================
-    // 1. LÓGICA DE TEMA (CLARO / OSCURO)
-    // ==========================================
-    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        themeToggleBtn.textContent = '☀️ Claro';
+    }
 
-    function aplicarTemaPorHora() {
-        const horaActual = new Date().getHours(); 
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
         
-        if (horaActual >= 19 || horaActual < 7) {
-            document.body.classList.add('dark-theme');
-            if (themeToggle) themeToggle.innerHTML = "☀️ Claro";
+        let theme = 'light';
+        if (document.body.classList.contains('dark-theme')) {
+            theme = 'dark';
+            themeToggleBtn.textContent = '☀️ Claro';
         } else {
-            document.body.classList.remove('dark-theme');
-            if (themeToggle) themeToggle.innerHTML = "🌙 Oscuro";
+            themeToggleBtn.textContent = '🌙 Oscuro';
         }
-    }
+        localStorage.setItem('theme', theme);
+    });
 
-    aplicarTemaPorHora();
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            
-            if (document.body.classList.contains('dark-theme')) {
-                themeToggle.innerHTML = "☀️ Claro";
-            } else {
-                themeToggle.innerHTML = "🌙 Oscuro";
-            }
-        });
-    }
-
-    // ==========================================
-    // 2. LÓGICA DEL COTIZADOR (WHATSAPP)
-    // ==========================================
+    // 2. ENVÍO DEL FORMULARIO A WHATSAPP
     const whatsappForm = document.getElementById('whatsapp-form');
+    
+    whatsappForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    if (whatsappForm) {
-        whatsappForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evita que la página se recargue al enviar
+        const tamano = document.getElementById('tamano').value;
+        const acabado = document.getElementById('acabado').value;
+        const detalles = document.getElementById('detalles').value.trim();
 
-            // 1. Capturar los valores que eligió el usuario
-            const tamano = document.getElementById('tamano').value;
-            const acabado = document.getElementById('acabado').value;
+        // Número de teléfono de la empresa (Ejemplo: 52 + 10 dígitos)
+        const telefono = "525584303847"; 
 
-            // 2. Número de teléfono de tu cliente (Pon el número real aquí)
-            // IMPORTANTE: Debe llevar el código de país (ej. 52 para México) sin el signo "+"
-            const numeroTelefono = "525584303847"; 
+        // Construcción del mensaje predeterminado
+        let mensaje = `Hola *Decoraciones Iyami*, me gustaría cotizar un cuadro personalizado:\n\n`;
+        mensaje += `📐 *Tamaño:* ${tamano}\n`;
+        mensaje += `🖼️ *Acabado:* ${acabado}\n`;
+        
+        if (detalles !== "") {
+            mensaje += `📝 *Detalles especiales:* ${detalles}\n`;
+        }
 
-            // 3. Crear el mensaje que le llegará a tu cliente
-            const mensaje = `¡Hola! Vengo de su página web y me gustaría cotizar un cuadro.%0A%0A*Detalles:*%0A🖼️ Tamaño: ${tamano}%0A✨ Acabado: ${acabado}%0A%0A¿Me podrían dar más información?`;
+        mensaje += `📷 *Nota:* Adjunto a continuación la foto de mi cuadro para la cotización.\n\n`;
+        mensaje += `¿Me podrían dar informes sobre el costo total y tiempo de entrega?`;
 
-            // 4. Armar el enlace oficial de WhatsApp API
-            const enlaceWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${mensaje}`;
+        // Codificar el texto para URL y abrir WhatsApp
+        const mensajeURLEncoded = encodeURIComponent(mensaje);
+        const urlWhatsApp = `https://wa.me/${telefono}?text=${mensajeURLEncoded}`;
 
-            // 5. Abrir el chat en una pestaña nueva
-            window.open(enlaceWhatsApp, '_blank');
-        });
-    }
-
+        window.open(urlWhatsApp, '_blank');
+    });
 });
