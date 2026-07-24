@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
+
 
 // ==========================================
     // 3. MODAL / LIGHTBOX PARA AMPLIAR IMÁGENES
@@ -106,3 +106,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+});
